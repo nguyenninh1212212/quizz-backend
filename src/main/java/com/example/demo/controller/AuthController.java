@@ -3,10 +3,10 @@ package com.example.demo.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dto.Req.AuthenticateReqDTO;
-import com.example.demo.dto.Req.RegisterReqDTO;
-import com.example.demo.dto.Res.AuthenticationResponse;
-import com.example.demo.dto.Res.ResponseData;
+import com.example.demo.model.dto.Req.AuthenticateReqDTO;
+import com.example.demo.model.dto.Req.RegisterReqDTO;
+import com.example.demo.model.dto.Res.AuthenticationResponse;
+import com.example.demo.model.dto.Res.ResponseData;
 import com.example.demo.service.AuthServ;
 import com.example.demo.utils.ResponseUtil;
 
@@ -25,13 +25,12 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<ResponseData<AuthenticationResponse>> register(@RequestBody @Validated RegisterReqDTO req) {
-        return ResponseUtil.ok(authServ.register(req), "success");
+        return ResponseUtil.ok(authServ.register(req));
     }
 
     @PostMapping("/login")
     public ResponseEntity<ResponseData<AuthenticationResponse>> login(@RequestBody AuthenticateReqDTO req) {
-        return ResponseUtil.ok(authServ.authenticcate(req), "success");
-
+        return ResponseUtil.ok(authServ.authenticate(req));
     }
 
 }

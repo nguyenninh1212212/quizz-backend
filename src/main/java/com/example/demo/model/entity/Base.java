@@ -14,6 +14,6 @@ public class Base {
     @Id
     @UuidGenerator
     private UUID id;
-    private Instant createdAt =Instant.now();
+    private Instant createdAt = Instant.now();
 
 }

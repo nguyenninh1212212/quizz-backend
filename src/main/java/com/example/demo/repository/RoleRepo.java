@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.entity.Role;
-import java.util.List;
 import com.example.demo.model.enums.ROLE;
 
 @Repository

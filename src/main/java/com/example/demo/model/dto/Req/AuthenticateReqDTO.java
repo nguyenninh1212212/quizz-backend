@@ -1,4 +1,4 @@
-package com.example.demo.dto.Req;
+package com.example.demo.model.dto.Req;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,23 +10,10 @@ import lombok.NonNull;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterReqDTO {
-    @NonNull
-    private String fullname;
-
-    @NonNull
-    private Integer age;
-
-    @NonNull
-    private String email;
-
-    @NonNull
-    private String phoneNumber;
-
+public class AuthenticateReqDTO {
     @NonNull
     private String username;
 
     @NonNull
     private String password;
-
 }

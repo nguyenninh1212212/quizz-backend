@@ -18,7 +18,7 @@ import java.util.function.Function;
 @RequiredArgsConstructor
 public class JwtServ {
     private final JwtConfig jwtConfig;
-    private final int ACCESS_TOKEN_EXPIRED = 1000 * 60 * 15; // 15 phút
+    private final int ACCESS_TOKEN_EXPIRED = 1000 * 1000 * 60 * 15; // 15 tieng
     private final int REFRESH_TOKEN_EXPIRED = 1000 * 60 * 60 * 24 * 7; // 7 ngày
 
     public String generateRefreshToken(UserDetails userDetails) {

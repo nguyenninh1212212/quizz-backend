@@ -1,6 +1,7 @@
 package com.example.demo.repository.specification;
 
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.example.demo.model.entity.Auth;
 
@@ -23,4 +24,5 @@ public class AuthSpeci {
             return cb.conjunction();
         };
     }
+
 }

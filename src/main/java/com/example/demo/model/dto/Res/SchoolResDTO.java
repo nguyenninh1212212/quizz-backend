@@ -1,4 +1,6 @@
-package com.example.demo.dto.Res;
+package com.example.demo.model.dto.Res;
+
+import java.util.UUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationResponse {
-    private String accessToken;
-    private String refreshToken;
+public class SchoolResDTO {
+    private UUID id;
+    private String name;
 }

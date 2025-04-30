@@ -1,4 +1,6 @@
-package com.example.demo.dto.Res;
+package com.example.demo.model.dto.Res;
+
+import org.springframework.http.HttpStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ResponseData<T> {
-    private T data;
-    private String status;
+public class ResponseError {
+    private String message;
+    private int status;
 }
