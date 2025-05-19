@@ -38,6 +38,10 @@ public class Auth extends BaseEntity implements UserDetails {
     @NonNull
     private String password;
 
+    private String googleId;
+
+    private String avatar;
+
     @ManyToOne
     @JoinColumn(name = "role_name", nullable = false)
     private Role role;

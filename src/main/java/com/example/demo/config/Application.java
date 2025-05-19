@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.example.demo.repository.AuthRepo;
+import com.example.demo.repository.specification.AuthSpeci;
 
 import lombok.RequiredArgsConstructor;
 
@@ -22,7 +23,7 @@ public class Application {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return username -> authRepo.findByUsername(username)
+        return username -> authRepo.findOne(AuthSpeci.hasUsername(username))
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
