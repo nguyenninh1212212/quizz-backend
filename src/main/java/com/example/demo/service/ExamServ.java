@@ -10,7 +10,6 @@ import com.example.demo.model.dto.Res.Exam.ExamResDetailDTO;
 import com.example.demo.model.dto.Res.Exam.ExamResEleDTO;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,7 +19,7 @@ public interface ExamServ {
 
     PageRes<List<ExamResDTO>> getAll(Pageable pageable);
 
-    ExamResDetailDTO getById(UUID id);
+    ExamResDetailDTO getById(String id);
 
     ExamResEleDTO getCreateExamElement();
 

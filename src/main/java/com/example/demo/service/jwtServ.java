@@ -6,13 +6,17 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import io.jsonwebtoken.Claims;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -22,13 +26,17 @@ public class JwtServ {
     private final int REFRESH_TOKEN_EXPIRED = 1000 * 60 * 60 * 24 * 7; // 7 ngày
 
     public String generateRefreshToken(UserDetails userDetails) {
-        return Jwts
-                .builder()
-                .setSubject(userDetails.getUsername())
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + REFRESH_TOKEN_EXPIRED))
-                .signWith(getSignKey(), SignatureAlgorithm.HS256)
-                .compact();
+        List<String> roles = userDetails.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.toList());
+
+        return Jwts.builder()
+                .setSubject(userDetails.getUsername()) // Lưu tên người dùng
+                .claim("roles", roles) // Thêm các vai trò vào JWT claim
+                .setIssuedAt(new Date(System.currentTimeMillis())) // Thời gian phát hành token
+                .setExpiration(new Date(System.currentTimeMillis() + REFRESH_TOKEN_EXPIRED)) // Thời gian hết hạn
+                .signWith(getSignKey(), SignatureAlgorithm.HS256) // Ký JWT
+                .compact(); // Tạo và trả về JWT
     }
 
     public String generateAccessToken(UserDetails userDetails) {

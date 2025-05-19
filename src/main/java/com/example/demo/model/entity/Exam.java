@@ -22,5 +22,7 @@ public class Exam extends Base {
     private Subject subject;
     @ManyToOne
     private Auth auth;
+    @ManyToOne
+    private Level level;
 
 }

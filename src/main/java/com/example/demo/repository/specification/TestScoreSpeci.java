@@ -4,15 +4,13 @@ import com.example.demo.model.entity.Auth;
 import com.example.demo.model.entity.TestScore;
 import org.springframework.data.jpa.domain.Specification;
 
-import java.util.UUID;
-
 public class TestScoreSpeci {
 
-    public static Specification<TestScore> hasSchool(UUID school) {
+    public static Specification<TestScore> hasSchool(String school) {
         return (root, query, cb) -> cb.equal(root.get("school_id"), school);
     }
 
-    public static Specification<TestScore> hasSubject(UUID subject) {
+    public static Specification<TestScore> hasSubject(String subject) {
         return (root, query, cb) -> cb.equal(root.get("subject_id"), subject);
     }
 

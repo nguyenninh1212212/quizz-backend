@@ -17,4 +17,5 @@ import lombok.NoArgsConstructor;
 public class ExamResEleDTO {
     private List<SchoolResDTO> schools;
     private List<SubjectResDTO> subjects;
+    private List<LevelResDTO> level;
 }

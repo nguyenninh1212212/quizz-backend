@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.example.demo.exceptions.ExceptionHandle;
 import com.example.demo.exceptions.Status;
 import com.example.demo.model.dto.Req.AuthenticateReqDTO;
-import com.example.demo.model.dto.Req.RegisterReqDTO;
 import com.example.demo.model.dto.Res.AuthenticationResponse;
 import com.example.demo.model.entity.Auth;
 import com.example.demo.model.entity.Role;
@@ -19,6 +18,7 @@ import com.example.demo.repository.AuthRepo;
 import com.example.demo.repository.specification.AuthSpeci;
 import com.example.demo.service.AuthServ;
 import com.example.demo.service.JwtServ;
+import com.example.demo.utils.AuthContext;
 
 import lombok.RequiredArgsConstructor;
 
@@ -29,8 +29,9 @@ public class AuthServImpl implements AuthServ {
         private final PasswordEncoder passwordEncoder;
         private final JwtServ jwtServ;
         private final AuthenticationManager authenticationManager;
+        private final AuthContext authContext;
 
-        public AuthenticationResponse register(RegisterReqDTO req) {
+        public AuthenticationResponse register(AuthenticateReqDTO req) {
                 Specification<Auth> spec = Specification
                                 .where(AuthSpeci.hasEmail(req.getEmail()))
                                 .or(AuthSpeci.hasUsername(req.getUsername()));
@@ -75,6 +76,11 @@ public class AuthServImpl implements AuthServ {
                                 .accessToken(accessToken)
                                 .refreshToken("")
                                 .build();
+        }
+
+        @Override
+        public String profile() {
+                return authContext.auth().getFullname();
         }
 
 }

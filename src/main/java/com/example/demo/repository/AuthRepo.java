@@ -6,9 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.entity.Auth;
 
-import java.util.UUID;
-
 @Repository
-public interface AuthRepo extends JpaRepository<Auth, UUID>, JpaSpecificationExecutor<Auth> {
+public interface AuthRepo extends JpaRepository<Auth, String>, JpaSpecificationExecutor<Auth> {
 
 }

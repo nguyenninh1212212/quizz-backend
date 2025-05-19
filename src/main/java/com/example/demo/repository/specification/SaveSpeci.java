@@ -1,7 +1,5 @@
 package com.example.demo.repository.specification;
 
-import java.util.UUID;
-
 import org.springframework.data.jpa.domain.Specification;
 
 import com.example.demo.model.entity.Auth;
