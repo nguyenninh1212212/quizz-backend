@@ -2,7 +2,6 @@ package com.example.demo.service.impl;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
@@ -59,7 +58,6 @@ public class FolderServImpl implements FolderServ {
         }
 
         @Override
-
         public void createFolder(String name) {
                 Auth auth = authContext.auth();
                 Folder folder = Folder
@@ -72,7 +70,7 @@ public class FolderServImpl implements FolderServ {
 
         @Override
         @Transactional
-        public void deleteFolder(UUID id) {
+        public void deleteFolder(String id) {
                 Auth auth = authContext.auth(); // Lấy thông tin người dùng đang đăng nhập
 
                 Specification<Folder> spec = Specification.where(
@@ -86,7 +84,7 @@ public class FolderServImpl implements FolderServ {
         }
 
         @Override
-        public FolderResDTO FolderDetail(UUID id) {
+        public FolderResDTO FolderDetail(String id) {
                 Auth auth = authContext.auth();
 
                 Specification<Folder> spec = Specification.where(
@@ -117,21 +115,22 @@ public class FolderServImpl implements FolderServ {
 
         @Override
         @Transactional
-        public void addToFolder(UUID folderId, UUID examId) {
+        public void addToFolder(String folderId, String examId) {
                 Auth auth = authContext.auth();
                 Exam exam = examRepo.findById(examId)
                                 .orElseThrow(() -> new ExceptionHandle(Status.INVALID_INPUT, "Exam not found"));
+                Folder folder = folderRepo.findById(folderId)
+                                .orElseThrow(() -> new ExceptionHandle(Status.INVALID_INPUT, "Folder not found"));
+
                 Specification<Save> spec = Specification.where(
                                 SaveSpeci.hasAuth(auth))
-                                .and(SaveSpeci.hasExam(exam));
+                                .and(SaveSpeci.hasExam(exam))
+                                .and(SaveSpeci.hasFolder(folder));
                 Save exist = saveRepo.findOne(spec).orElse(null);
 
                 if (exist != null) {
                         throw new ExceptionHandle(Status.CONFLICT, "Exam already exists in the folder");
                 }
-
-                Folder folder = folderRepo.findById(folderId)
-                                .orElseThrow(() -> new ExceptionHandle(Status.INVALID_INPUT, "Folder not found"));
 
                 Save save = Save.builder()
                                 .folder(folder)

@@ -1,19 +1,23 @@
 package com.example.demo.model.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
-import org.hibernate.annotations.UuidGenerator;
 
 import java.time.Instant;
-import java.util.UUID;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @MappedSuperclass
 @Data
 public class Base {
     @Id
-    @UuidGenerator
-    private UUID id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @Column(updatable = false, nullable = false)
+    private String id;
     private Instant createdAt = Instant.now();
 
 }

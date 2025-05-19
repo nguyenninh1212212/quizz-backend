@@ -1,7 +1,5 @@
 package com.example.demo.model.dto.Res;
 
-import java.util.UUID;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SubjectResDTO {
-    private UUID id;
+    private String id;
+    private String school_id;
     private String name;
 
 }

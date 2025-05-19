@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.data.domain.Pageable;
 
@@ -14,10 +13,10 @@ public interface FolderServ {
 
     void createFolder(String name);
 
-    void deleteFolder(UUID id);
+    void deleteFolder(String id);
 
-    void addToFolder(UUID folderId, UUID examId);
+    void addToFolder(String folderId, String examId);
 
-    FolderResDTO FolderDetail(UUID id);
+    FolderResDTO FolderDetail(String id);
 
 }

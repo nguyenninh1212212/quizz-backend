@@ -11,7 +11,6 @@ import com.example.demo.utils.ResponseUtil;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -45,19 +44,19 @@ public class FolderController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteFolder(@PathVariable UUID id) {
+    public ResponseEntity<?> deleteFolder(@PathVariable String id) {
         folderServ.deleteFolder(id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ResponseData<FolderResDTO>> getFolderDetail(@PathVariable UUID id) {
+    public ResponseEntity<ResponseData<FolderResDTO>> getFolderDetail(@PathVariable String id) {
         FolderResDTO folderDetail = folderServ.FolderDetail(id);
         return ResponseUtil.ok(folderDetail);
     }
 
     @PostMapping("/{folderId}/add")
-    public ResponseEntity<?> addToFolder(@PathVariable UUID folderId, @RequestParam UUID examId) {
+    public ResponseEntity<?> addToFolder(@PathVariable String folderId, @RequestParam String examId) {
         folderServ.addToFolder(folderId, examId);
         return ResponseUtil.cre();
 

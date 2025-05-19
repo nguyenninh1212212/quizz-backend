@@ -1,7 +1,5 @@
 package com.example.demo.repository.specification;
 
-import java.util.UUID;
-
 import org.springframework.data.jpa.domain.Specification;
 
 import com.example.demo.model.entity.Auth;
@@ -18,7 +16,7 @@ public class FolderSpeci {
         };
     }
 
-    public static Specification<Folder> hasId(UUID id) {
+    public static Specification<Folder> hasId(String id) {
         return (root, query, cb) -> {
             if (id != null) {
                 return cb.equal(root.get("id"), id);
