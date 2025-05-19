@@ -6,6 +6,7 @@ spring:
     url: jdbc:mysql://localhost:3306/quiz
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
+
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -21,6 +22,7 @@ spring:
       resourceserver:
         jwt:
           secret-key: ${JWT_SECRET}
+
   servlet:
     multipart:
       max-file-size: 5MB

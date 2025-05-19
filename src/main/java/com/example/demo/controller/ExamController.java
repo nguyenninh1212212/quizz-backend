@@ -64,7 +64,7 @@ public class ExamController {
     public ResponseEntity<ResponseData<PageRes<List<ExamResDTO>>>> getAllExams(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
-                
+
         Pageable pageable = PageRequest.of(page, size);
         PageRes<List<ExamResDTO>> exams = examServ.getAll(pageable);
         return ResponseUtil.ok(exams);

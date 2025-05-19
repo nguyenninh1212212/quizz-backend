@@ -106,7 +106,13 @@
 			<artifactId>jjwt-jackson</artifactId>
 			<version>0.11.5</version>
 		</dependency>
-       
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-oauth2-resource-server -->
+        <dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+    		<version>3.4.2</version>
+		</dependency>
 		<dependency>
     <groupId>com.cloudinary</groupId>
     <artifactId>cloudinary-http5</artifactId>
@@ -125,8 +131,6 @@
      <version>4.1.0</version>
    </dependency>
  </dependencies>
-
- 
 
 	<build>
 		<plugins>
