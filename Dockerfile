@@ -9,6 +9,7 @@ RUN mvn dependency:go-offline
 
 # Copy source code
 COPY . .
+COPY .env /app/.env
 
 # Build ra file JAR
 RUN mvn clean package -DskipTests
