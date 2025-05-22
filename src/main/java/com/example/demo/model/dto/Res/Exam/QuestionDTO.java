@@ -3,10 +3,12 @@ package com.example.demo.model.dto.Res.Exam;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Setter;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class QuestionDTO {

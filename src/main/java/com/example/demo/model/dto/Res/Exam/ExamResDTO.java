@@ -2,10 +2,12 @@ package com.example.demo.model.dto.Res.Exam;
 
 import java.time.Instant;
 
-import lombok.Data;
+import lombok.Setter;
+import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
-@Data
+@Getter
+@Setter
 @SuperBuilder
 public class ExamResDTO {
     private String id;

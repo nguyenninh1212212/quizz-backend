@@ -2,9 +2,11 @@ package com.example.demo.model.dto.Req;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import lombok.Data;
+import lombok.Setter;
+import lombok.Getter;
 
-@Data
+@Getter
+@Setter
 public class ExamReqDTO {
     private MultipartFile cover;
     private MultipartFile docx;

@@ -1,11 +1,13 @@
 package com.example.demo.config.jwt;
 
-import lombok.Data;
+import lombok.Setter;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-@Data
+@Getter
+@Setter
 public class JwtConfig {
     private String secretKey;
 

@@ -2,11 +2,13 @@ package com.example.demo.model.dto.Req.File;
 
 import com.example.demo.model.enums.FILE;
 
-import lombok.Data;
+import lombok.Setter;
+import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
-@Data
+@Getter
+@Setter
 public class RawReqDTO extends FileBase {
     @Override
     public String getFileType() {

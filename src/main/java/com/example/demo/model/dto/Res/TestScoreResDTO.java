@@ -2,9 +2,11 @@ package com.example.demo.model.dto.Res;
 
 import java.time.Instant;
 
-import lombok.Data;
+import lombok.Setter;
+import lombok.Getter;
 
-@Data
+@Getter
+@Setter
 public class TestScoreResDTO {
     private Double score;
     private String exam;

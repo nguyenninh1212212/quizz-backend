@@ -2,13 +2,17 @@ package com.example.demo.model.entity;
 
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Setter;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.Getter;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 public class School extends Base {
     private String name;
 }

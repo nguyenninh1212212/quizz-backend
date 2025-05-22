@@ -4,14 +4,18 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
-import lombok.Data;
+import lombok.Setter;
+import lombok.Getter;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.Instant;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @MappedSuperclass
-@Data
+@Getter
+@Setter
 public class Base {
     @Id
     @GeneratedValue(generator = "uuid")
