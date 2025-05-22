@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: my-backend-ruiz
-    env: java
-    buildCommand: "./gradlew build"
-    startCommand: "java -jar build/libs/myapp.jar"
-    branch: main
-    region: oregon
