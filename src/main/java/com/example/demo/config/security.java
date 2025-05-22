@@ -35,17 +35,9 @@ public class Security {
                                 .authorizeRequests(requests -> requests
                                                 .requestMatchers("/**").permitAll()// ✅ Cho phép tất cả
                                                 .anyRequest().authenticated()) // Các endpoint còn lại yêu cầu xác thực
-                                // khi đăng nhập
-                                // .oauth2Login(oauth2 -> oauth2
-                                // .loginPage("/oauth2/authorization/google")
-                                // .defaultSuccessUrl("/exam/home", true) // ✅ Đường dẫn đến trang thành
-                                // .failureUrl("/auth/login")) // ✅ Đường dẫn đến trang thất bại sau
-
                                 .exceptionHandling(e -> e
                                                 .accessDeniedHandler(customAccessDeniedHandler)
                                                 .authenticationEntryPoint(customAuthenticationEntryPoint)) // ✅ xử lý
-                                // khi token
-                                // thiếu/sai
                                 .sessionManagement(m -> m.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                                 .authenticationProvider(authenticationProvider)
                                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
