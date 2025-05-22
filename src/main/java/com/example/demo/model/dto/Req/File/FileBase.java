@@ -7,7 +7,6 @@ import lombok.experimental.SuperBuilder;
 
 @Data
 @SuperBuilder
-
 public abstract class FileBase {
     private MultipartFile file;
 
