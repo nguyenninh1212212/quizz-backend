@@ -26,7 +26,6 @@ import com.example.demo.model.dto.Res.ResponseData;
 import com.example.demo.model.dto.Res.Exam.ExamResDTO;
 import com.example.demo.model.dto.Res.Exam.ExamResDetailDTO;
 import com.example.demo.model.dto.Res.Exam.ExamResEleDTO;
-import com.example.demo.repository.LevelRepo;
 import com.example.demo.service.ExamServ;
 import com.example.demo.utils.ResponseUtil;
 
