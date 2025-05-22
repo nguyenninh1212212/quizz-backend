@@ -1,34 +1,34 @@
-server:
-  port: 8080
+  server:
+    port: 8080
 
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/quiz
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+  spring:
+    datasource:
+      url: jdbc:mysql://localhost:3306/quiz
+      username: ${DB_USERNAME}
+      password: ${DB_PASSWORD}
 
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: false
-    properties:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
       hibernate:
-        format_sql: true
-    database: mysql
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          secret-key: ${JWT_SECRET}
+        ddl-auto: update
+      show-sql: false
+      properties:
+        hibernate:
+          format_sql: true
+      database: mysql
+      database-platform: org.hibernate.dialect.MySQL8Dialect
+    security:
+      oauth2:
+        resourceserver:
+          jwt:
+            secret-key: ${JWT_SECRET}
 
-  servlet:
-    multipart:
-      max-file-size: 5MB
-      max-request-size: 5MB
+    servlet:
+      multipart:
+        max-file-size: 5MB
+        max-request-size: 5MB
 
-cloudinary:
-  cloud-name: ${CLOUDINARY_NAME}
-  api-key: ${CLOUDINARY_API_KEY}
-  api-secret: ${CLOUDINARY_API_SECRET}
+  cloudinary:
+    cloud-name: ${CLOUDINARY_NAME}
+    api-key: ${CLOUDINARY_API_KEY}
+    api-secret: ${CLOUDINARY_API_SECRET}
